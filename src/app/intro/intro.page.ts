@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -41,13 +42,22 @@ export class IntroPage implements OnInit {
     }
     ]
     
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private storage: Storage
+    ) { }
   
   goToHome(){
     console.log("Go to Home");
     this.router.navigateByUrl("/home");
   }
 
+  ionViewDidEnter(){
+    console.log("Ya entre y vi la intro");
+    this.router.navigateByUrl("/home");
+    this.storage.set('Ya yo vi la intro',true);
+  
+  }
   ngOnInit() {
   }
 
