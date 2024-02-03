@@ -13,7 +13,7 @@
   <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
     <ion-item>
       <ion-input label="Email" labelPlacement="floating" placeholder="Email" formControlName="email"></ion-input>
-      <ion-input label="Password" labelPlacement="floating" placeholder="Password" formControlName="password"></ion-input>
+      <ion-input label="Password" labelPlacement="floating" type="Password" placeholder="Password" formControlName="password"></ion-input>
     </ion-item>
     <div class="validation-message">
       <ng-container *ngFor="let validation of validation_messages.email">
@@ -37,9 +37,14 @@
     color="success"
     shape="round"
     expand="full"
-    >Login</ion-button>
+    ><b>Login</b></ion-button>
   </form>
   <div class="validation-message">
     {{loginMessage}}
   </div>
+
+  <ion-button expand="full" color="secondary" (click)="goToRegister()">
+   <b>Registrarse</b> 
+  </ion-button>
+
 </ion-content>

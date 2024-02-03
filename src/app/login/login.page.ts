@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth.service';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private navCtrl: NavController,
-    private storage: Storage
+    private storage: Storage,
+    private router: Router
     ) { 
   this.loginForm = this.formBuilder.group({
     email: new FormControl(
@@ -64,6 +66,10 @@ export class LoginPage implements OnInit {
     }).catch(err => {
       this.loginMessage = err;
     });
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 
 }

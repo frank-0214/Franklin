@@ -1,0 +1,13 @@
+.center-avatar{
+    margin: auto;
+}
+
+.validation-message {
+    color: #fff; /* Color blanco para el texto */
+    font-size: 14px; /* Tamaño de fuente ligeramente aumentado */
+    margin-top: 8px; /* Un poco más de espacio superior */
+    padding: 8px; /* Añadido relleno para mejorar la presentación */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #e74c3c; /* Fondo rojo para indicar error */
+    border: 1px solid #c0392b; /* Borde sólido para mayor visibilidad */
+}

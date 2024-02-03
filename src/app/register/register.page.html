@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+       <ion-button (click)="goToLogin()">volver</ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center ion-text-uppercase">Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <figure class="ion-text-center">
+    <ion-avatar class="center-avatar">
+      <img src="../../assets/image/user.png" alt="logo" class="logo">
+    </ion-avatar>
+  </figure>
+  
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input label="Email" labelPlacement="floating" placeholder="Email" formControlName="email"></ion-input>
+      <ion-input label="Nombre" labelPlacement="floating" placeholder="Nombre" formControlName="name"></ion-input>
+      <ion-input label="Apellido" labelPlacement="floating" placeholder="Apellido" formControlName="last_name"></ion-input>
+      <ion-input label="Contraseña" labelPlacement="floating" type="password" formControlName="password"></ion-input>
+      <ion-input label="Confirmar Contraseña" labelPlacement="floating" type="password" formControlName="confirmation_password"></ion-input>
+    </ion-item> 
+
+    <div class="validation-message">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div *ngIf="
+          (registerForm.get('email')?.hasError(validation.type) && 
+          registerForm.get('email')?.dirty)
+        ">{{validation.message}}</div>
+      </ng-container>
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div *ngIf="
+          (registerForm.get('name')?.hasError(validation.type) && 
+          registerForm.get('name')?.dirty)
+        ">{{validation.message}}</div>
+      </ng-container>
+      <ng-container *ngFor="let validation of validation_messages.last_name">
+        <div *ngIf="
+          (registerForm.get('last_name')?.hasError(validation.type) && 
+          registerForm.get('last_name')?.dirty)
+        ">{{validation.message}}</div>
+      </ng-container>
+      <div *ngIf="registerForm.get('confirmation_password')?.hasError('notMatched') && registerForm.get('confirmation_password')?.dirty">
+        Las contraseñas no coinciden.
+      </div>
+    </div>
+    
+    <ion-button
+    (click)="register()"
+    expand="full"
+    shape="round"
+    color="success"
+    [disabled]="!registerForm.valid"
+    type="button"
+  >
+    Registrarse 
+  </ion-button> 
+</form>
+</ion-content>
+
