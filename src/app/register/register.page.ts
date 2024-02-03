@@ -91,12 +91,10 @@ export class RegisterPage implements OnInit {
   }
 
   register() {
-    // Agrega tu lógica de registro aquí usando this.registerForm.value
     console.log(this.registerForm.value);
   }
   
   async onSubmit() {
-    // Verificar que las contraseñas sean iguales
     if (this.registerForm.get('password')?.value !== this.registerForm.get('confirmation_password')?.value) {
       const alert = await this.alertController.create({
         header: 'Error',
@@ -106,23 +104,14 @@ export class RegisterPage implements OnInit {
 
       await alert.present();
 
-      // No permitir que el formulario se envíe
       return;
     }
-
-    // Resto del código para manejar el envío del formulario si las contraseñas coinciden
-  
-  
-    // Verificar que las contraseñas sean iguales
+    
     if (this.registerForm.get('password')?.value !== this.registerForm.get('confirmation_password')?.value) {
-      // Mostrar alerta (puedes personalizar la alerta según tus necesidades)
       alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
-      // No permitir que el formulario se envíe
       return;
     }
-  
-    // Si llegamos hasta aquí, el formulario es válido y las contraseñas coinciden
-    // Llama a tu método de registro
+    
     this.register();
   }  
 

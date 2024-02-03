@@ -30,7 +30,7 @@ export class HomePage {
         this.events.getTodasCategorias().then(
           res =>{
             this.categoria_list = res;
-            console.log("Categorias del servidor ID",this.categoria_list)
+            console.log("Categorias del servidor",this.categoria_list)
           }
           )
         
@@ -38,7 +38,7 @@ export class HomePage {
           this.events.getCategoriaId(categoriaId).then(
             categoria =>{
               this.categoria_list = categoria;
-              console.log("Categorias del servidor",this.categoria_list)
+              console.log("Categorias del servidor ID",this.categoria_list)
             }
             )
 
